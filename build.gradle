@@ -1,0 +1,25 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '8.0.0' apply false
+    id 'com.android.library' version '8.0.0' apply false
+}
+//buildscript {
+//    repositories {
+//        // Gradle 4.1 and higher include support for Google's Maven repo using
+//        // the google() method. And you need to include this repo to download
+//        // Android plugin 3.0.0 or higher.
+//        google()
+//        maven { url "https://maven.google.com" }
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:3.0.1'
+//    }
+//}
+
+
+//allprojects {
+//    repositories {
+//        jcenter()
+//        google()
+//    }
+//}
