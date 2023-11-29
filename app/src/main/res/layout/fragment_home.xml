@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/video_controller">
+
+    </include>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
 
         <EditText
             android:id="@+id/enterLink"
@@ -16,16 +25,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity=""
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="37dp"
             android:hint="Enter the link of the video..."
             android:minHeight="48dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_stream"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.34"
+            tools:ignore="NotSibling" />
 
         <Button
             android:id="@+id/btn_stream"
@@ -34,25 +45,16 @@
             android:layout_gravity="center"
             android:layout_marginStart="158dp"
             android:layout_marginEnd="158dp"
-            android:layout_marginBottom="260dp"
+            android:layout_marginBottom="160dp"
             android:backgroundTint="@color/black"
             android:text="Stream"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/include"
-            app:layout_constraintVertical_bias="1.0" />
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/video_controller"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </include>
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</LinearLayout>

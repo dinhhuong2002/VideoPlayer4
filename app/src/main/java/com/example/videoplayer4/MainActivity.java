@@ -1,10 +1,11 @@
 package com.example.videoplayer4;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.videoplayer4.ui.home.HomeFragment;
 import com.example.videoplayer4.ui.notifications.NotificationsFragment;
+import com.example.videoplayer4.ui.playlist.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
+    String TAG="VideoPlayer";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +37,15 @@ public class MainActivity extends AppCompatActivity {
             int itemId = item.getItemId();
             if (itemId == R.id.navigation_home) {
                 replaceFragment(new HomeFragment());
-                Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_SHORT).show();
                 return true;
             } else if (itemId == R.id.navigation_dashboard) {
-                replaceFragment(new DialogFragment());
-                Toast.makeText(getApplicationContext(),"Playlist",Toast.LENGTH_LONG).show();
+                replaceFragment(new DashboardFragment());
+                Toast.makeText(getApplicationContext(),"Playlist",Toast.LENGTH_SHORT).show();
+                Log.d(TAG,"PlaylistFragment");
             } else if(itemId == R.id.navigation_notifications){
                 replaceFragment(new NotificationsFragment());
-                Toast.makeText(getApplicationContext(),"Notifications",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Notifications",Toast.LENGTH_SHORT).show();
             }
             return false;
         });

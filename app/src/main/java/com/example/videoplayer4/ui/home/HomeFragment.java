@@ -31,21 +31,24 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
         EditText enterlink=binding.enterLink;
         Button btnStream=binding.btnStream;
         PlayerView exoPlayer= binding.include.playerView;
 
+        enterlink.setText("https://file-examples.com/storage/fe19e15eac6560f8c936c41/2017/04/file_example_MP4_640_3MG.mp4");
+        enterlink.setEnabled(false); //cant edit link in textView
         String uri = enterlink.getText().toString();
 
         ExoPlayer player = new ExoPlayer.Builder(getContext()).build();
         exoPlayer.setPlayer(player);
 
         // Build the media item.
-        MediaItem mediaItem = MediaItem.fromUri("https://file-examples.com/storage/fe19e15eac6560f8c936c41/2017/04/file_example_MP4_640_3MG.mp4");
+        MediaItem mediaItem = MediaItem.fromUri(uri);
         // Set the media item to be played.
         player.setMediaItem(mediaItem);
         player.prepare();
-        player.addListener();
+//        player.addListener();//
         btnStream.setOnClickListener(view -> {
             // Prepare the player.
             // Start the playback.
