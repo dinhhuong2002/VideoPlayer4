@@ -10,7 +10,9 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/video_controller">
+        layout="@layout/video_controller"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
 
     </include>
 
