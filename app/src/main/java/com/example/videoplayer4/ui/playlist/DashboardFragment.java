@@ -41,25 +41,9 @@ public class DashboardFragment extends Fragment {
 
         videoArrayList = getListVideo();
         recyclerView = binding.recyclerView;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new VideoAdapter(getContext(),videoArrayList));
-
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//
-//                layoutManager = new LinearLayoutManager(getContext());
-//                // Get the first and last visible items
-//                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-//                int secondVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()+1;
-//                int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
-//                // Do something with the visible items
-//
-////                handleVisibleItems(firstVisibleItemPosition, lastVisibleItemPosition);
-//            }
-//        });
         layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -87,23 +71,6 @@ public class DashboardFragment extends Fragment {
         return root;
     }
 
-//    private void handleVisibleItems(int firstVisibleItem, int lastVisibleItem){
-//        // Iterate over visible items and do something
-//        for (int i = firstVisibleItem; i <= lastVisibleItem; i++) {
-//            int item= adapter.getItemViewType(i);
-//            // Do something with the visible item
-//            if(item == 1 ) {
-//                View view = layoutManager.findViewByPosition(item);
-//
-//                MediaItem mediaItem = MediaItem.fromUri(uri);
-//                // Set the media item to be played.
-//                player.setMediaItem(mediaItem);
-//                player.prepare();
-//                player.play();
-////                view.setBackgroundColor(Color.parseColor("#777777"));
-//            }
-//        }
-//    }
     private List<Video> getListVideo() {
         List<Video> videoList = new ArrayList<Video>();
         videoList.add(new Video("https://file-examples.com/storage/fe19e15eac6560f8c936c41/2017/04/file_example_MP4_640_3MG.mp4")); //Noaaa
@@ -127,13 +94,6 @@ public class DashboardFragment extends Fragment {
         videoList.add(new Video("https://43324700545123422b.lotuscdn.vn/201204812902309888/2020/12/30/WomanWalking-1609303462769.mp4")); //Noi nay co anh
         videoList.add(new Video("https://43324700545123422b.lotuscdn.vn/201204812902309888/2020/12/2/918127046-1606890428689386032470.mp4"));
         return videoList;
-    }
-
-
-
-    public void playWhenFocus(View itemView){
-
-//        videoArrayList;
     }
     @Override
     public void onDestroyView() {

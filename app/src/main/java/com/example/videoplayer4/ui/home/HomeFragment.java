@@ -32,9 +32,10 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        EditText enterlink=binding.enterLink;
-        Button btnStream=binding.btnStream;
+        EditText enterlink = binding.enterLink;
+        Button btnStream = binding.btnStream;
         PlayerView exoPlayer= binding.include.playerView;
+        HomeViewModel.showToast();
 
         enterlink.setText("https://file-examples.com/storage/fe19e15eac6560f8c936c41/2017/04/file_example_MP4_640_3MG.mp4");
         enterlink.setEnabled(false); //cant edit link in textView
